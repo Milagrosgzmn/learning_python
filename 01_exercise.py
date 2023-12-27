@@ -21,6 +21,8 @@ Comentario
 de multiples líneas
 """
 
+language = 'Python'
+
 myStr : str= 'este es un string, aunque el lenguaje es dinamico podemos dar un hint del tipo de dato con los :'
 
 myInt : int = 22
@@ -37,4 +39,4 @@ myBoolean : bool = True
 
 mySet : set = {'Milagros', 22}
 
-print('Hola')
+print(f'Hola {language}!')

@@ -6,10 +6,39 @@
   """
 
 def test(num: int):
+    def isPrime(number):
+        if number!=2 and number > 1:
+            for num in range(2,number-1):
+                if number%num == 0:
+                    return False
+            
+        return True
+                
+    def testFibonacci(number, current_index=0, current_fibonacci=0, next_fibonacci=1):
+        if current_fibonacci == number:
+            return True
+        elif current_fibonacci > number:
+            return False
+        else:
+            return testFibonacci(number, current_index + 1, next_fibonacci, current_fibonacci + next_fibonacci)
+
+    if isPrime(num):
+        prime = 'es primo'
+    else: 
+        prime= 'no es primo'
+
+    if testFibonacci(num):
+        fibonacci='fibonacci'
+    else:
+        fibonacci= 'no es fibonacci'
+    
     if num%2 == 0:
         isEven = 'es par'
     else:
-        isEven= 'no es par'
+        isEven= 'es impar'
 
-    
-    return f'{num} y {isEven}'
+
+    return f'{num} {prime}, {fibonacci} y {isEven}'
+
+print(test(2))
+print(test(7))

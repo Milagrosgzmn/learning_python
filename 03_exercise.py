@@ -4,11 +4,12 @@
  * - Con el número 2, nos dirá: "2 es primo, fibonacci y es par"
  * - Con el número 7, nos dirá: "7 es primo, no es fibonacci y es impar"
   """
+from math import sqrt 
 
 def test(num: int):
     def isPrime(number):
         if number!=2 and number > 1:
-            for num in range(2,number-1):
+            for num in range(2,int(sqrt(number))):
                 if number%num == 0:
                     return False
             

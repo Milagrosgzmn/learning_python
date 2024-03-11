@@ -13,9 +13,6 @@ play = [['piedra','papel'], ['piedra','tijera'], ['lagarto','papel'], ['piedra',
 
 def moreWins(games):
 
-    player1Wins = 0
-    player2Wins = 0
-
     def compare(round):
         if round[0]=='piedra':
             if round[1]== 'papel' or round[1] == 'spock':
@@ -45,9 +42,18 @@ def moreWins(games):
 
     winners = map(compare, games)
 
-    print(list(winners))
+    player2Wins = filter( lambda winner: winner=='player2', winners)
+
+    round_played= len(list(winners))
+    
+    if len(list(player2Wins))>round_played/2:
+        return 'Player 2'
+    elif len(list(player2Wins))==round_played/2:
+        return 'Tie'
+    else:
+        return 'Player 1'
 
 
 
-moreWins(play)
+print(moreWins(play))
 
